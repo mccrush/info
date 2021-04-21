@@ -1,6 +1,6 @@
 <template>
   <nav class="row">
-    <div class="col-4">
+    <div class="col-3">
       <button
         class="btn btn-block btn-light w-100 router-link-active"
         @click="selectTab('Logic', $event)"
@@ -9,7 +9,16 @@
         Логика
       </button>
     </div>
-    <div class="col-4">
+    <div class="col-3">
+      <button
+        class="btn btn-block btn-light w-100"
+        @click="selectTab('Step', $event)"
+        ref="step"
+      >
+        Степени 2
+      </button>
+    </div>
+    <div class="col-3">
       <button
         class="btn btn-block btn-light w-100"
         @click="selectTab('Ss', $event)"
@@ -18,7 +27,7 @@
         Перевод СС
       </button>
     </div>
-    <div class="col-4">
+    <div class="col-3">
       <button
         class="btn btn-block btn-light w-100"
         @click="selectTab('About', $event)"
@@ -37,6 +46,7 @@ export default {
       this.$emit('mytab', compName)
       this.$refs.logic.classList.remove('router-link-active')
       this.$refs.ss.classList.remove('router-link-active')
+      this.$refs.step.classList.remove('router-link-active')
       this.$refs.about.classList.remove('router-link-active')
       e.target.classList.add('router-link-active')
     }

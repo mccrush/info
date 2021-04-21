@@ -19,6 +19,7 @@ import Footer from '@/components/Footer'
 
 import Logic from '@/views/Logic'
 import Ss from '@/views/Ss'
+import Step from '@/views/Step'
 import About from '@/views/About'
 
 export default {
@@ -29,6 +30,7 @@ export default {
     Footer,
     Logic,
     Ss,
+    Step,
     About
   },
   data() {
