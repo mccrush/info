@@ -1,6 +1,6 @@
 <template>
   <nav class="row">
-    <div class="col-3">
+    <div class="col-6 col-sm-3">
       <button
         class="btn btn-block btn-light w-100 router-link-active"
         @click="selectTab('Logic', $event)"
@@ -9,7 +9,7 @@
         Логика
       </button>
     </div>
-    <div class="col-3">
+    <div class="col-6 col-sm-3">
       <button
         class="btn btn-block btn-light w-100"
         @click="selectTab('Step', $event)"
@@ -18,7 +18,7 @@
         Степени 2
       </button>
     </div>
-    <div class="col-3">
+    <div class="col-6 col-sm-3 mt-2 mt-sm-0">
       <button
         class="btn btn-block btn-light w-100"
         @click="selectTab('Ss', $event)"
@@ -27,7 +27,7 @@
         Перевод СС
       </button>
     </div>
-    <div class="col-3">
+    <div class="col-6 col-sm-3 mt-2 mt-sm-0">
       <button
         class="btn btn-block btn-light w-100"
         @click="selectTab('About', $event)"
