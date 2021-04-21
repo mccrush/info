@@ -17,16 +17,28 @@ import Header from '@/components/Header'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
+import Logic from '@/views/Logic'
+import Ss from '@/views/Ss'
+import About from '@/views/About'
+
 export default {
   name: 'App',
   components: {
     Header,
     Navbar,
-    Footer
+    Footer,
+    Logic,
+    Ss,
+    About
   },
   data() {
     return {
-      myComponent: 'Home'
+      myComponent: 'Logic'
+    }
+  },
+  methods: {
+    getComponent(comp) {
+      this.myComponent = comp
     }
   }
 }
