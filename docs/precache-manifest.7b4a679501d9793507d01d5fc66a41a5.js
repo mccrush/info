@@ -1,7 +1,7 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a08dec1b0d2000d934c1",
-    "url": "/info/css/app.36f288a7.css"
+    "revision": "513d09ffda03dd2dd100",
+    "url": "/info/css/app.726e19f5.css"
   },
   {
     "revision": "c128ac6dd4d903250608",
@@ -28,12 +28,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/info/img/logic/zakony_logiki.png"
   },
   {
-    "revision": "785eab22f4f8d3bc03ffc41b1c2e5b95",
+    "revision": "c8136d0fd88cb230ee7d13dda3392f9a",
     "url": "/info/index.html"
   },
   {
-    "revision": "a08dec1b0d2000d934c1",
-    "url": "/info/js/app.b446363d.js"
+    "revision": "513d09ffda03dd2dd100",
+    "url": "/info/js/app.6b1799ce.js"
   },
   {
     "revision": "c128ac6dd4d903250608",
