@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "description": "Info Mat - Справочник по Информатике и Математике",
   "author": "mccrush.ru",
-  "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build"
