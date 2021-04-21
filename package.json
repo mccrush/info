@@ -1,6 +1,8 @@
 {
   "name": "info",
   "version": "0.1.0",
+  "description": "Info Mat - Справочник по Информатике и Математике",
+  "author": "mccrush.ru",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -28,5 +30,20 @@
     "jsxBracketSameLine": true,
     "arrowParens": "avoid",
     "trailingComma": "none"
+  },
+  "bugs": {
+    "url": "https://github.com/mccrush/info/issues"
+  },
+  "homepage": "https://github.com/mccrush/info",
+  "keywords": [
+    "сайт",
+    "информатика",
+    "математика",
+    "справочник"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mccrush/info.git"
   }
 }
