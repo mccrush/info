@@ -3,7 +3,7 @@
     <div class="col-12 pt-3">
       <h2>О проекте</h2>
       <p>
-        <strong>Info Mat</strong> - это справочник по некоторым разделам
+        <strong>Info Math</strong> - это справочник по некоторым разделам
         Информатики и Математики. Это
         <abbr title="Открытое программное обеспечение" class="initialism"
           >Open source</abbr
