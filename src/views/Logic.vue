@@ -8,6 +8,7 @@
       <TableIst />
 
       <h4>Законы логики</h4>
+      <TableZak />
       <div class="row">
         <div class="col-12 col-sm-6">
           <a
@@ -42,12 +43,14 @@
 <script>
 import TableOboz from '@/components/logic/TableOboz'
 import TableIst from '@/components/logic/TableIst'
+import TableZak from '@/components/logic/TableZak'
 import TablePor from '@/components/logic/TablePor'
 
 export default {
   components: {
     TableOboz,
     TableIst,
+    TableZak,
     TablePor
   }
 }
