@@ -14,10 +14,6 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>0</td>
-                <td>1</td>
-              </tr>
               <tr v-for="n in 16" :key="n + 'id'">
                 <td>{{ n }}</td>
                 <td>{{ Math.pow(2, n).toLocaleString() }}</td>
@@ -36,9 +32,9 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="m in 17" :key="m + 'id'">
-                <td>{{ m + 10 }}</td>
-                <td>{{ Math.pow(2, m + 10).toLocaleString() }}</td>
+              <tr v-for="m in 16" :key="m + 'id'">
+                <td>{{ m + 16 }}</td>
+                <td>{{ Math.pow(2, m + 16).toLocaleString() }}</td>
               </tr>
             </tbody>
           </table>
