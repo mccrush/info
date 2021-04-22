@@ -20,7 +20,7 @@
         </tbody>
       </table>
     </div>
-    <div class="col-12 col-sm-6 ps-sm-1">
+    <div class="col-12 col-sm-6 mt-2 mt-sm-0 ps-sm-1">
       <table class="table table-bordered table-sm text-center">
         <thead>
           <tr>
