@@ -7,6 +7,9 @@
       <h4>Таблицы истинности</h4>
       <div class="row">
         <div class="col-12">
+          <TableIst />
+
+          <hr />
           <a
             data-fancybox="gallery"
             href="img/logic/tabist.png"
@@ -83,6 +86,16 @@
     </div>
   </div>
 </template>
+
+<script>
+import TableIst from '@/components/logic/TableIst'
+
+export default {
+  components: {
+    TableIst
+  }
+}
+</script>
 
 <style scoped>
 a.card {
