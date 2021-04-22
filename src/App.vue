@@ -52,6 +52,10 @@ export default {
   margin: 0 auto;
 }
 
+h4 {
+  margin-top: 32px;
+}
+
 .btn:focus,
 .form-control:focus,
 .form-select:focus,

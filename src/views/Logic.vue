@@ -1,13 +1,12 @@
 <template>
   <div class="row">
     <div class="col-12 pt-3">
-      <h2>Логика</h2>
+      <h4>Обозначения</h4>
+      <TableOboz />
 
-      <hr />
       <h4>Таблицы истинности</h4>
       <TableIst />
 
-      <hr />
       <h4>Законы логики</h4>
       <div class="row">
         <div class="col-12 col-sm-6">
@@ -34,57 +33,22 @@
         </div>
       </div>
 
-      <hr />
       <h4>Порядок выполнения логических операций</h4>
-
-      <table
-        class="table table-bordered table-striped table-hover table-sm text-center mb-0"
-      >
-        <thead>
-          <tr>
-            <th>0</th>
-            <td>( )</td>
-            <td class="text-start ps-2 w-75">действия в скобках</td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th>1</th>
-            <td><span class="overline">X</span></td>
-            <td class="text-start ps-2">инверсия (отрицание)</td>
-          </tr>
-          <tr>
-            <th>2</th>
-            <td>&</td>
-            <td class="text-start ps-2">конъюнкция</td>
-          </tr>
-          <tr>
-            <th>3</th>
-            <td>v</td>
-            <td class="text-start ps-2">дизъюнкция</td>
-          </tr>
-          <tr>
-            <th>4</th>
-            <td>&rarr;</td>
-            <td class="text-start ps-2">импликация (следование)</td>
-          </tr>
-          <tr>
-            <th>5</th>
-            <td>&harr;</td>
-            <td class="text-start ps-2">эквивалентность</td>
-          </tr>
-        </tbody>
-      </table>
+      <TablePor />
     </div>
   </div>
 </template>
 
 <script>
+import TableOboz from '@/components/logic/TableOboz'
 import TableIst from '@/components/logic/TableIst'
+import TablePor from '@/components/logic/TablePor'
 
 export default {
   components: {
-    TableIst
+    TableOboz,
+    TableIst,
+    TablePor
   }
 }
 </script>

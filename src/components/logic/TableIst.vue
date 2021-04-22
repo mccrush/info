@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <div class="col-12 col-sm-6 pe-sm-1">
-      <table class="table table-bordered table-sm text-center mb-0">
+      <table class="table table-bordered text-center">
         <thead>
           <tr>
             <th class="w-50">Конъюнкция</th>
@@ -10,10 +10,10 @@
         </thead>
         <tbody>
           <tr>
-            <td>
+            <td class="p-2">
               <TableKon />
             </td>
-            <td>
+            <td class="p-2">
               <TableDiz />
             </td>
           </tr>
@@ -21,7 +21,7 @@
       </table>
     </div>
     <div class="col-12 col-sm-6 mt-2 mt-sm-0 ps-sm-1">
-      <table class="table table-bordered table-sm text-center">
+      <table class="table table-bordered text-center">
         <thead>
           <tr>
             <th class="w-50">Импликация</th>
@@ -30,10 +30,10 @@
         </thead>
         <tbody>
           <tr>
-            <td>
+            <td class="p-2">
               <TableIm />
             </td>
-            <td>
+            <td class="p-2">
               <TableEq />
             </td>
           </tr>

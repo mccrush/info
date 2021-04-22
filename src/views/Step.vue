@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <div class="col-12 pt-4">
-      <h2>Степени двойки</h2>
+      <h4>Степени двойки</h4>
       <div class="row">
         <div class="col-12 col-sm-6">
           <table
