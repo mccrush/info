@@ -1,42 +1,60 @@
 <template>
-  <table class="table table-bordered table-sm text-center">
-    <thead>
-      <tr>
-        <th class="w-20">Инверсия</th>
-        <th class="w-20">Конъюнкция</th>
-        <th class="w-20">Дизъюнкция</th>
-        <th class="w-20">Импликация</th>
-        <th class="w-20">Эквивалентность</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>
-          <TableIn />
-        </td>
-        <td>
-          <TableKon />
-        </td>
-        <td>
-          <TableDiz />
-        </td>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="row">
+    <div class="col-12 col-sm-6 pe-sm-1">
+      <table class="table table-bordered table-sm text-center mb-0">
+        <thead>
+          <tr>
+            <th class="w-50">Конъюнкция</th>
+            <th class="w-50">Дизъюнкция</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <TableKon />
+            </td>
+            <td>
+              <TableDiz />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-12 col-sm-6 ps-sm-1">
+      <table class="table table-bordered table-sm text-center">
+        <thead>
+          <tr>
+            <th class="w-50">Импликация</th>
+            <th class="w-50">Эквивалентность</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <TableIm />
+            </td>
+            <td>
+              <TableEq />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </template>
 
 <script>
-import TableIn from '@/components/logic/TableIn'
 import TableKon from '@/components/logic/TableKon'
 import TableDiz from '@/components/logic/TableDiz'
+import TableIm from '@/components/logic/TableIm'
+import TableEq from '@/components/logic/TableEq'
 
 export default {
   components: {
-    TableIn,
     TableKon,
-    TableDiz
+    TableDiz,
+    TableIm,
+    TableEq
   }
 }
 </script>

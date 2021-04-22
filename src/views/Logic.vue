@@ -5,26 +5,7 @@
 
       <hr />
       <h4>Таблицы истинности</h4>
-      <div class="row">
-        <div class="col-12">
-          <TableIst />
-
-          <hr />
-          <a
-            data-fancybox="gallery"
-            href="img/logic/tabist.png"
-            class="card h-100 mt-2 mt-sm-0"
-          >
-            <img
-              src="img/logic/tabist.png"
-              alt="Таблицы истинности"
-              class="w-100"
-            />
-          </a>
-        </div>
-        <div class="col-12"></div>
-        <div class="col-12"></div>
-      </div>
+      <TableIst />
 
       <hr />
       <h4>Законы логики</h4>

@@ -1,6 +1,6 @@
 <template>
   <table
-    class="table table-bordered table-striped table-hover table-sm text-center"
+    class="table table-bordered table-striped table-hover table-sm text-center mb-0"
   >
     <thead>
       <tr>
