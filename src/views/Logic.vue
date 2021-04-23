@@ -9,7 +9,7 @@
 
       <h4>Законы логики</h4>
       <TableZak />
-      <div class="row">
+      <!-- <div class="row">
         <div class="col-12 col-sm-6">
           <a
             data-fancybox="gallery"
@@ -32,7 +32,7 @@
             <img src="img/logic/zakony.jpg" alt="Законы логики" class="w-100" />
           </a>
         </div>
-      </div>
+      </div> -->
 
       <h4>Порядок выполнения логических операций</h4>
       <TablePor />
@@ -56,15 +56,13 @@ export default {
 }
 </script>
 
-<style scoped>
-a.card {
-  border: 1px solid #dee2e6;
-  transition: 0.3s ease-in-out;
+<style>
+.overline {
+  text-decoration: overline;
 }
 
-a.card:hover {
-  border-color: #fff;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+.duble-border {
+  border-top: 4px double #212529;
 }
 </style>
 

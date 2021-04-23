@@ -1,9 +1,11 @@
 <template>
   <div class="row">
-    <div class="col-12 col-sm-6 pe-sm-1">
+    <div
+      v-for="(zacon, index) in zacons"
+      :key="'id' + index"
+      class="col-12 col-sm-6 pe-sm-1"
+    >
       <table
-        v-for="zacon in zacons"
-        :key="'id' + zacon.id"
         class="table table-bordered table-striped table-hover table-sm text-center"
       >
         <thead>
@@ -18,7 +20,6 @@
         </tbody>
       </table>
     </div>
-    <div class="col-12 col-sm-6 mt-2 mt-sm-0 ps-sm-1"></div>
   </div>
 </template>
 
@@ -33,9 +34,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.duble-border {
-  border-top: 4px double #212529;
-}
-</style>

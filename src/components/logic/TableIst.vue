@@ -58,13 +58,3 @@ export default {
   }
 }
 </script>
-
-<style>
-.w-20 {
-  width: 20%;
-}
-
-.overline {
-  text-decoration: overline;
-}
-</style>

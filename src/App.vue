@@ -56,6 +56,10 @@ h4 {
   margin-top: 32px;
 }
 
+.w-20 {
+  width: 20%;
+}
+
 .btn:focus,
 .form-control:focus,
 .form-select:focus,
