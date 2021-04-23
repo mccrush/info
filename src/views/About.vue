@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <div class="col-12 pt-3">
-      <h2>О проекте</h2>
+      <h4>О проекте</h4>
       <p>
         <strong>Info Math</strong> - это справочник по некоторым разделам
         Информатики и Математики. Это
