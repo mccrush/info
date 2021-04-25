@@ -107,7 +107,17 @@
     </div>
     <div class="col-12">
       <br />
-      <div class="accordion" id="accordionFlushExample">
+      <p>
+        {{ inputNum }}<sub>{{ inputSS }}</sub> =
+        <span v-html="reshDecStr"></span>
+      </p>
+      <p>
+        <strong>
+          2. Переведем {{ reshDec }}<sub>10</sub> в нужную нам СС</strong
+        >
+      </p>
+      <p>Целая часть числа находится делением на основание новой</p>
+      <div v-if="resultNum" class="accordion" id="accordionFlushExample">
         <div class="accordion-item">
           <h2 class="accordion-header" id="flush-headingOne">
             <button
@@ -130,9 +140,7 @@
             data-bs-parent="#accordionFlushExample"
           >
             <div class="accordion-body">
-              Placeholder content for this accordion, which is intended to
-              demonstrate the <code>.accordion-flush</code> class. This is the
-              first item's accordion body.
+              <p><strong>1. Переведем число в десятичную СС</strong></p>
             </div>
           </div>
         </div>
@@ -151,7 +159,9 @@ export default {
       resultNum: '',
       inputSS: '10',
       resultSS: '10',
-      showResh: false
+      showResh: false,
+      reshDecStr: '',
+      reshDec: ''
     }
   },
   methods: {
@@ -160,7 +170,29 @@ export default {
         this.resultNum = parseInt(this.inputNum, this.inputSS).toString(
           +this.resultSS
         )
+
+        this.reshenie()
       }
+    },
+    reshenie() {
+      this.reshDecStr = ''
+      this.inputNum.split('').forEach((item, index, array) => {
+        this.reshDecStr +=
+          item +
+          '•' +
+          '10' +
+          '<sup>' +
+          (array.length - (index + 1)) +
+          '</sup> + '
+      })
+
+      this.reshDec = parseInt(this.inputNum, this.inputSS).toString(10)
+
+      this.reshDecStr =
+        this.reshDecStr.substr(0, this.reshDecStr.length - 2) +
+        ' = ' +
+        this.reshDec +
+        '<sub>10</sub>'
     }
     // inSub(ss) {
     //   if (ss <= this.inputMAX) {
