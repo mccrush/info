@@ -11,6 +11,18 @@
           >Калькулятор</a
         >
       </p>
+      <hr />
+      <CalcSS />
     </div>
   </div>
 </template>
+
+<script>
+import CalcSS from '@/components/SS/CalcSS'
+
+export default {
+  components: {
+    CalcSS
+  }
+}
+</script>

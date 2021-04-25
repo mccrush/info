@@ -65,6 +65,7 @@ h4 {
 .form-select:focus,
 .navbar-toggler:focus {
   outline: 0 !important;
+  border-color: #6c757d !important;
   box-shadow: none !important;
 }
 
