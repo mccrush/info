@@ -1,7 +1,9 @@
 <template>
   <div class="row">
     <div class="col-12 col-sm-6">
-      <label for="inputNum" class="form-label">Введите число</label>
+      <label for="inputNum" class="form-label"
+        >Введите число, макс цифра: {{ inputMAX }}</label
+      >
       <input
         type="text"
         id="inputNum"
@@ -24,12 +26,13 @@
             name="inputSS"
             :id="'option' + ss"
             autocomplete="off"
-            v-model="inputSS"
             @change="calculate"
           />
           <label
             class="inputSS btn btn-outline-dark w-75"
             :for="'option' + ss"
+            @click="inputSS = ss + 1"
+            :class="{ 'disabled bg-light btn-secondary': inSub(ss + 1) }"
             >{{ ss + 1 }}</label
           >
         </div>
@@ -63,12 +66,12 @@
             name="resultSS"
             :id="'optionr' + ss"
             autocomplete="off"
-            v-model="resultSS"
             @change="calculate"
           />
           <label
             class="inputSS btn btn-outline-dark w-75"
             :for="'optionr' + ss"
+            @click="resultSS = ss + 1"
             >{{ ss + 1 }}</label
           >
         </div>
@@ -84,14 +87,25 @@ export default {
       inputNum: '',
       resultNum: '',
       inputSS: '10',
-      resultSS: '10'
+      resultSS: '10',
+      inputMAX: 0
     }
   },
   methods: {
     calculate() {
-      this.resultNum = parseInt(this.inputNum, this.inputSS).toString(
-        +this.resultSS
-      )
+      if (this.inputNum) {
+        this.inputMAX = Math.max.apply(null, this.inputNum.split(''))
+
+        this.resultNum = parseInt(this.inputNum, this.inputSS).toString(
+          +this.resultSS
+        )
+      }
+    },
+    inSub(ss) {
+      if (ss <= this.inputMAX) {
+        return true
+      }
+      return false
     }
   }
 }
