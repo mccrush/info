@@ -108,12 +108,16 @@
     <div class="col-12">
       <br />
       <p>
-        {{ inputNum }}<sub>{{ inputSS }}</sub> =
-        <span v-html="reshDecStr"></span>
+        <code>
+          {{ inputNum }}<sub>{{ inputSS }}</sub> =
+          <span v-html="reshDecStr"></span>
+        </code>
       </p>
       <p>
         <strong>
-          2. Переведем {{ reshDec }}<sub>10</sub> в нужную нам СС</strong
+          2. Переведем
+          <code>{{ reshDec }}<sub>10</sub></code>
+          в нужную нам СС</strong
         >
       </p>
       <p>Целая часть числа находится делением на основание новой</p>
