@@ -94,7 +94,23 @@ export default {
   methods: {
     calculate() {
       if (this.inputNum) {
-        this.inputMAX = Math.max.apply(null, this.inputNum.split(''))
+        let arrString = []
+        let arrStringUp = []
+        this.inputNum.split('').forEach(item => {
+          if (item.toUpperCase() >= 'A' && item.toUpperCase() <= 'F') {
+            arrString.push(item)
+          }
+        })
+
+        if (arrString.length) {
+          arrStringUp = arrString.map(item => {
+            return item.toUpperCase()
+          })
+          const maxChar = arrStringUp.sort()[arrStringUp.length - 1]
+          this.inputMAX = this.getNumber(maxChar)
+        } else {
+          this.inputMAX = Math.max.apply(null, this.inputNum.split(''))
+        }
 
         this.resultNum = parseInt(this.inputNum, this.inputSS).toString(
           +this.resultSS
@@ -106,6 +122,28 @@ export default {
         return true
       }
       return false
+    },
+    getNumber(char) {
+      switch (char) {
+        case 'A':
+          return 11
+          break
+        case 'B':
+          return 12
+          break
+        case 'C':
+          return 13
+          break
+        case 'D':
+          return 14
+          break
+        case 'E':
+          return 15
+          break
+        case 'F':
+          return 16
+          break
+      }
     }
   }
 }
