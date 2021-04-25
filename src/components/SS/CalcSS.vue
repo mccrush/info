@@ -14,7 +14,7 @@
       />
       <br />
       <p class="mb-2">Исходная система счисления: {{ inputSS }}</p>
-      <div class="rounded border pb-2 w-100">
+      <div class="rounded border bg-light pb-2 w-100">
         <div
           class="d-inline-flex justify-content-around me-0 mt-2 w-25"
           v-for="ss in 15"
