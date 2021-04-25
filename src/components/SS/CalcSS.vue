@@ -11,8 +11,8 @@
         @input="calculate"
       />
       <br />
-      <p class="mb-2">Исходная система счисления</p>
-      <div class="w-100 border">
+      <p class="mb-2">Исходная система счисления: {{ inputSS }}</p>
+      <div class="rounded border pb-2 w-100">
         <div
           class="d-inline-flex justify-content-around me-0 mt-2 w-25"
           v-for="ss in 15"
@@ -25,6 +25,7 @@
             :id="'option' + ss"
             autocomplete="off"
             v-model="inputSS"
+            @change="calculate"
           />
           <label
             class="inputSS btn btn-outline-dark w-75"
@@ -49,8 +50,8 @@
         </button>
       </div>
       <br />
-      <p class="mb-2">Перевести в систему счисления</p>
-      <div class="w-100 border">
+      <p class="mb-2">Перевести в систему счисления: {{ resultSS }}</p>
+      <div class="rounded border pb-2 w-100">
         <div
           class="d-inline-flex justify-content-around me-0 mt-2 w-25"
           v-for="ss in 15"
@@ -63,6 +64,7 @@
             :id="'optionr' + ss"
             autocomplete="off"
             v-model="resultSS"
+            @change="calculate"
           />
           <label
             class="inputSS btn btn-outline-dark w-75"
@@ -81,13 +83,15 @@ export default {
     return {
       inputNum: '',
       resultNum: '',
-      inputSS: '',
-      resultSS: ''
+      inputSS: '10',
+      resultSS: '10'
     }
   },
   methods: {
     calculate() {
-      this.resultNum = this.inputNum
+      this.resultNum = parseInt(this.inputNum, this.inputSS).toString(
+        +this.resultSS
+      )
     }
   }
 }

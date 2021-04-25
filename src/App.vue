@@ -61,6 +61,7 @@ h4 {
 }
 
 .btn:focus,
+.btn-check:focus + .btn-outline-dark,
 .form-control:focus,
 .form-select:focus,
 .navbar-toggler:focus {
