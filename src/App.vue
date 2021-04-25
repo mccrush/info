@@ -64,10 +64,16 @@ h4 {
 .btn-check:focus + .btn-outline-dark,
 .form-control:focus,
 .form-select:focus,
+.accordion-button:focus,
 .navbar-toggler:focus {
   outline: 0 !important;
   border-color: #6c757d !important;
   box-shadow: none !important;
+}
+
+.accordion-button:not(.collapsed) {
+  color: #212529;
+  background-color: #f8f9fa;
 }
 
 .fade-enter-active,
