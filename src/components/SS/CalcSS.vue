@@ -142,31 +142,33 @@
                   <span v-html="reshDecStr"></span>
                 </code>
               </p>
-              <p class="mb-0">
-                <strong>
-                  2. Переведем
-                  <code>{{ reshDec }}<sub>10</sub></code>
-                  в нужную нам СС</strong
-                >
-              </p>
-              <p>
-                Целая часть числа находится делением на основание новой СС<br />
-                <code><span v-html="reshSSStr"></span></code>
-              </p>
-              <p>
-                Записываем последнюю целую часть + остатки от деления начиная с
-                последнего <br />
-                <code>{{ resultNum }}</code>
-              </p>
-              <p class="mb-0">
-                <strong> 3. Результат</strong>
-              </p>
-              <p>
-                <code>
-                  {{ inputNum }}<sub>{{ inputSS }}</sub> = {{ resultNum
-                  }}<sub>{{ resultSS }}</sub>
-                </code>
-              </p>
+              <div v-if="resultSS !== 10">
+                <p class="mb-0">
+                  <strong>
+                    2. Переведем
+                    <code>{{ reshDec }}<sub>10</sub></code>
+                    в нужную нам СС</strong
+                  >
+                </p>
+                <p>
+                  Целая часть числа находится делением на основание новой СС<br />
+                  <code><span v-html="reshSSStr"></span></code>
+                </p>
+                <p>
+                  Записываем последнюю целую часть + остатки от деления начиная
+                  с последнего <br />
+                  <code>{{ resultNum }}</code>
+                </p>
+                <p class="mb-0">
+                  <strong> 3. Результат</strong>
+                </p>
+                <p>
+                  <code>
+                    {{ inputNum }}<sub>{{ inputSS }}</sub> = {{ resultNum
+                    }}<sub>{{ resultSS }}</sub>
+                  </code>
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -221,7 +223,6 @@ export default {
               break
             }
           }
-          //console.log('inputNumArrayInt = ', inputNumArrayInt)
         })
 
         let res = parseInt(this.inputNum, this.inputSS).toString(+this.resultSS)
@@ -274,11 +275,11 @@ export default {
           (cel % this.resultSS) +
           '<br>'
         cel = Math.trunc(cel / this.resultSS)
-        console.log('cel = ', cel, ' | ost = ', ost)
+        //console.log('cel = ', cel, ' | ost = ', ost)
       }
       ost += cel
       const res = ost.split('').reverse().join('')
-      console.log('result = ', res)
+      //console.log('result = ', res)
     },
     // inSub(ss) {
     //   if (ss <= this.inputMAX) {
