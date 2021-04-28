@@ -35,7 +35,7 @@ export default {
   },
   data() {
     return {
-      myComponent: 'Logic'
+      myComponent: localStorage.getItem('info-page') || 'Logic'
     }
   },
   methods: {
