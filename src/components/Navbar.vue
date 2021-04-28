@@ -30,7 +30,7 @@
         Перевод СС
       </button>
     </div>
-    <div class="col-6 col-sm-3 mt-2 mt-sm-0">
+    <!-- <div class="col-6 col-sm-3 mt-2 mt-sm-0">
       <button
         class="btn btn-block btn-light w-100"
         @click="selectTab('Algol', $event)"
@@ -39,8 +39,8 @@
       >
         Алгоритмы
       </button>
-    </div>
-    <div class="col-6 col-sm-3 mt-2">
+    </div> -->
+    <!-- <div class="col-6 col-sm-3 mt-2">
       <button
         class="btn btn-block btn-light w-100"
         @click="selectTab('Graph', $event)"
@@ -49,8 +49,8 @@
       >
         Графы
       </button>
-    </div>
-    <div class="col-6 col-sm-3 mt-2">
+    </div> -->
+    <div class="col-6 col-sm-3 mt-2 mt-sm-0">
       <button
         class="btn btn-block btn-light w-100"
         @click="selectTab('About', $event)"
@@ -77,8 +77,8 @@ export default {
       this.$refs.ss.classList.remove('router-link-active')
       this.$refs.step.classList.remove('router-link-active')
       this.$refs.about.classList.remove('router-link-active')
-      this.$refs.algol.classList.remove('router-link-active')
-      this.$refs.graph.classList.remove('router-link-active')
+      // this.$refs.algol.classList.remove('router-link-active')
+      // this.$refs.graph.classList.remove('router-link-active')
       e.target.classList.add('router-link-active')
       localStorage.setItem('info-page', compName)
     }
