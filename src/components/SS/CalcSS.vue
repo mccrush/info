@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <div class="col-12 col-sm-6">
-      <label for="inputNum" class="form-label">Введите число</label>
+      <!-- <label for="inputNum" class="form-label">Введите число</label> -->
       <input
         type="text"
         id="inputNum"
@@ -10,6 +10,7 @@
         v-model.trim="inputNum"
         @input="calculate"
       />
+      <div id="inputNumHelp" class="form-text" v-html="inputNumHelp"></div>
       <br />
       <p class="mb-2">Исходная система счисления</p>
       <div class="rounded border pb-2 w-100">
@@ -43,7 +44,7 @@
     </div>
     <div class="col-12 col-sm-6 mt-2 mt-sm-0">
       <div class="d-none d-sm-block">
-        <label for="resultNum" class="form-label">Результат</label>
+        <!-- <label for="resultNum" class="form-label">Результат</label> -->
         <div class="input-group">
           <input
             type="text"
@@ -56,6 +57,7 @@
             Copy
           </button>
         </div>
+        <div id="resultNumHelp" class="form-text" v-html="resultNumHelp"></div>
       </div>
 
       <br />
@@ -163,6 +165,8 @@ export default {
       resultNum: '',
       inputSS: '10',
       resultSS: '10',
+      inputNumHelp: 'Введите число',
+      resultNumHelp: 'Результат',
       showResh: false,
       reshDecStr: '',
       reshDec: ''
@@ -171,11 +175,20 @@ export default {
   methods: {
     calculate() {
       if (this.inputNum) {
-        this.resultNum = parseInt(this.inputNum, this.inputSS).toString(
-          +this.resultSS
-        )
+        this.inputNumHelp = this.inputNum + '<sub>' + this.inputSS + '</sub>'
 
-        this.reshenie()
+        let res = parseInt(this.inputNum, this.inputSS).toString(+this.resultSS)
+
+        if (res !== 'NaN') {
+          this.resultNum = res
+          this.resultNumHelp =
+            this.resultNum + '<sub>' + this.resultSS + '</sub>'
+          this.reshenie()
+        }
+      } else {
+        this.resultNum = ''
+        this.inputNumHelp = 'Введите число'
+        this.resultNumHelp = 'Результат'
       }
     },
     reshenie() {
@@ -197,35 +210,35 @@ export default {
         ' = ' +
         this.reshDec +
         '<sub>10</sub>'
-    }
+    },
     // inSub(ss) {
     //   if (ss <= this.inputMAX) {
     //     return true
     //   }
     //   return false
     // },
-    // getNumber(char) {
-    //   switch (char) {
-    //     case 'A':
-    //       return 11
-    //       break
-    //     case 'B':
-    //       return 12
-    //       break
-    //     case 'C':
-    //       return 13
-    //       break
-    //     case 'D':
-    //       return 14
-    //       break
-    //     case 'E':
-    //       return 15
-    //       break
-    //     case 'F':
-    //       return 16
-    //       break
-    //   }
-    // },
+    getNumber(char) {
+      switch (char) {
+        case 'A':
+          return 11
+          break
+        case 'B':
+          return 12
+          break
+        case 'C':
+          return 13
+          break
+        case 'D':
+          return 14
+          break
+        case 'E':
+          return 15
+          break
+        case 'F':
+          return 16
+          break
+      }
+    }
     // tempMet() {
     //   let arrString = []
     //     let arrStringUp = []

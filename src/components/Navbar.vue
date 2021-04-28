@@ -36,7 +36,7 @@
         Алгоритмы
       </button>
     </div>
-    <div class="col-6 col-sm-3 mt-2 mt-sm-0">
+    <div class="col-6 col-sm-3 mt-2">
       <button
         class="btn btn-block btn-light w-100"
         @click="selectTab('Graph', $event)"
@@ -45,7 +45,7 @@
         Графы
       </button>
     </div>
-    <div class="col-6 col-sm-3 mt-2 mt-sm-0">
+    <div class="col-6 col-sm-3 mt-2">
       <button
         class="btn btn-block btn-light w-100"
         @click="selectTab('About', $event)"
