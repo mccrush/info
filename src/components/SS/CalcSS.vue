@@ -21,14 +21,14 @@
         >
           <input
             type="radio"
-            class="btn-check"
+            class="input-ss btn-check"
             name="inputSS"
             :id="'option' + ss"
             autocomplete="off"
             @change="calculate"
           />
           <label
-            class="inputSS btn btn-outline-dark w-75"
+            class="btn btn-outline-dark w-75"
             :for="'option' + ss"
             @click="inputSS = ss + 1"
             >{{ ss + 1 }}</label
@@ -40,6 +40,7 @@
           v-model.trim="inputSS"
           @input="calculate"
           title="MAX 36"
+          @focus="checkOffInSS"
         />
       </div>
     </div>
@@ -71,7 +72,7 @@
         >
           <input
             type="radio"
-            class="btn-check"
+            class="result-ss btn-check"
             name="resultSS"
             :id="'optionr' + ss"
             autocomplete="off"
@@ -90,6 +91,7 @@
           v-model.trim="resultSS"
           @input="calculate"
           title="MAX 36"
+          @focus="checkOffResSS"
         />
       </div>
 
@@ -198,9 +200,28 @@ export default {
     }
   },
   methods: {
+    checkOffInSS() {
+      let btnEl = document.querySelectorAll(
+        '.input-ss.btn-check:checked+.btn-outline-dark'
+      )[0]
+      //btnEl.setAttribute('checked', false)
+      btnEl.classList.add('bg-white', 'text-dark')
+    },
+    checkOffResSS() {
+      let btnEl = document.querySelectorAll(
+        '.result-ss.btn-check:checked+.btn-outline-dark'
+      )[0]
+      btnEl.classList.add('bg-white', 'text-dark')
+    },
     calculate() {
-      if (this.inputSS > 36 || this.resultSS > 36) {
+      if (this.inputSS > 36) {
         alert('Основание СС не может быть больше 36')
+        this.inputSS = ''
+      }
+
+      if (this.resultSS > 36) {
+        alert('Основание СС не может быть больше 36')
+        this.resultSS = ''
       }
 
       if (this.inputNum) {
