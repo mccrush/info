@@ -39,6 +39,7 @@
           class="form-control d-inline-flex border-warning text-center w-20 ms-2"
           v-model.trim="inputSS"
           @input="calculate"
+          title="MAX 36"
         />
       </div>
     </div>
@@ -88,6 +89,7 @@
           class="form-control d-inline-flex border-warning text-center w-20 ms-2"
           v-model.trim="resultSS"
           @input="calculate"
+          title="MAX 36"
         />
       </div>
 
@@ -197,6 +199,10 @@ export default {
   },
   methods: {
     calculate() {
+      if (this.inputSS > 36 || this.resultSS > 36) {
+        alert('Основание СС не может быть больше 36')
+      }
+
       if (this.inputNum) {
         this.inputNum = this.inputNum.toUpperCase()
 
@@ -282,40 +288,15 @@ export default {
           ', остаток ' +
           (cel % this.resultSS) +
           '<br>'
+
         cel = Math.trunc(cel / this.resultSS)
-        //console.log('cel = ', cel, ' | ost = ', ost)
       }
+
       ost += cel
       const res = ost.split('').reverse().join('')
-      //console.log('result = ', res)
     },
-    // inSub(ss) {
-    //   if (ss <= this.inputMAX) {
-    //     return true
-    //   }
-    //   return false
-    // },
     getNumber(char) {
-      switch (char) {
-        case 'A':
-          return 11
-          break
-        case 'B':
-          return 12
-          break
-        case 'C':
-          return 13
-          break
-        case 'D':
-          return 14
-          break
-        case 'E':
-          return 15
-          break
-        case 'F':
-          return 16
-          break
-      }
+      return char.charCodeAt(0) - 54
     }
   }
 }
