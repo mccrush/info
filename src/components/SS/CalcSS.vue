@@ -109,20 +109,7 @@
     </div>
     <div class="col-12">
       <br />
-      <p>
-        <code>
-          {{ inputNum }}<sub>{{ inputSS }}</sub> =
-          <span v-html="reshDecStr"></span>
-        </code>
-      </p>
-      <p>
-        <strong>
-          2. Переведем
-          <code>{{ reshDec }}<sub>10</sub></code>
-          в нужную нам СС</strong
-        >
-      </p>
-      <p>Целая часть числа находится делением на основание новой</p>
+
       <div v-if="resultNum" class="accordion" id="accordionFlushExample">
         <div class="accordion-item">
           <h2 class="accordion-header" id="flush-headingOne">
@@ -147,6 +134,37 @@
           >
             <div class="accordion-body">
               <p><strong>1. Переведем число в десятичную СС</strong></p>
+              <p>
+                <code>
+                  {{ inputNum }}<sub>{{ inputSS }}</sub> =
+                  <span v-html="reshDecStr"></span>
+                </code>
+              </p>
+              <p>
+                <strong>
+                  2. Переведем
+                  <code>{{ reshDec }}<sub>10</sub></code>
+                  в нужную нам СС</strong
+                >
+              </p>
+              <p>
+                Целая часть числа находится делением на основание новой<br />
+                <code><span v-html="reshSSStr"></span></code>
+              </p>
+              <p>
+                Записываем последнюю целую часть + остатки от деления начиная с
+                последнего <br />
+                <code>{{ resultNum }}</code>
+              </p>
+              <p>
+                <strong> 3. Результат</strong>
+              </p>
+              <p>
+                <code>
+                  {{ inputNum }}<sub>{{ inputSS }}</sub> = {{ resultNum
+                  }}<sub>{{ resultSS }}</sub>
+                </code>
+              </p>
             </div>
           </div>
         </div>
@@ -169,7 +187,8 @@ export default {
       resultNumHelp: 'Результат',
       showResh: false,
       reshDecStr: '',
-      reshDec: ''
+      reshDec: '',
+      reshSSStr: ''
     }
   },
   methods: {
@@ -217,6 +236,7 @@ export default {
     },
     reshenie() {
       this.reshDecStr = ''
+      this.reshSSStr = ''
       this.inputNum.split('').forEach((item, index, array) => {
         this.reshDecStr +=
           item +
@@ -234,6 +254,27 @@ export default {
         ' = ' +
         this.reshDec +
         '<sub>10</sub>'
+
+      let cel = this.reshDec
+      let ost = ''
+      while (cel >= this.resultSS) {
+        ost += cel % this.resultSS
+
+        this.reshSSStr +=
+          cel +
+          ' &divide; ' +
+          this.resultSS +
+          ' = ' +
+          Math.trunc(cel / this.resultSS) +
+          ', остаток ' +
+          (cel % this.resultSS) +
+          '<br>'
+        cel = Math.trunc(cel / this.resultSS)
+        console.log('cel = ', cel, ' | ost = ', ost)
+      }
+      ost += cel
+      const res = ost.split('').reverse().join('')
+      console.log('result = ', res)
     },
     // inSub(ss) {
     //   if (ss <= this.inputMAX) {
