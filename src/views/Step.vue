@@ -1,9 +1,18 @@
 <template>
   <div class="row">
     <div class="col-12 pt-4">
-      <h4>Степени двойки</h4>
+      <h4>Степени чисел</h4>
       <div class="row">
         <div class="col-12 col-sm-6">
+          <input
+            type="number"
+            class="form-control"
+            v-model.number="inputNum"
+            min="1"
+            max="99"
+            step="1"
+          />
+          <div id="resultNumHelp" class="form-text mb-3">Введите число</div>
           <table
             class="table table-bordered table-striped table-hover table-sm"
           >
@@ -14,14 +23,23 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="n in 16" :key="n + 'id'">
+              <tr v-for="n in podStep1" :key="n + 'id'">
                 <td>{{ n }}</td>
-                <td>{{ Math.pow(2, n).toLocaleString() }}</td>
+                <td>{{ Math.pow(inputNum, n).toLocaleString() }}</td>
               </tr>
             </tbody>
           </table>
         </div>
         <div class="col-12 col-sm-6">
+          <input
+            type="number"
+            class="form-control"
+            v-model.number="inputStep"
+            min="1"
+            max="99"
+            step="1"
+          />
+          <div id="resultNumHelp" class="form-text mb-3">Введите степень</div>
           <table
             class="table table-bordered table-striped table-hover table-sm"
           >
@@ -32,9 +50,9 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="m in 16" :key="m + 'id'">
-                <td>{{ m + 16 }}</td>
-                <td>{{ Math.pow(2, m + 16).toLocaleString() }}</td>
+              <tr v-for="m in podStep1" :key="m + 'id'">
+                <td>{{ m + podStep1 }}</td>
+                <td>{{ Math.pow(inputNum, m + podStep1).toLocaleString() }}</td>
               </tr>
             </tbody>
           </table>
@@ -43,3 +61,23 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      inputNum: 2,
+      inputStep: 16
+    }
+  },
+  computed: {
+    podStep1() {
+      if (this.inputStep % 2 === 0) {
+        return this.inputStep / 2
+      } else {
+        return Math.trunc(this.inputStep / 2) + 1
+      }
+    }
+  }
+}
+</script>
