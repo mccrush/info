@@ -213,7 +213,15 @@ export default {
           }
 
           for (let i = 0; i < inputNumArrayInt.length; i++) {
-            if (inputNumArrayInt[i] > this.inputSS) {
+            if (inputNumArrayInt[i] >= this.inputSS && this.inputSS < 11) {
+              this.inputNumHelp =
+                '<code>Цифры ' +
+                inputNumArrayStr[i] +
+                ' нет в ' +
+                this.inputSS +
+                '-ой CC</code>'
+              break
+            } else if (inputNumArrayInt[i] > this.inputSS) {
               this.inputNumHelp =
                 '<code>Цифры ' +
                 inputNumArrayStr[i] +
