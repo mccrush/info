@@ -133,14 +133,16 @@
             data-bs-parent="#accordionFlushExample"
           >
             <div class="accordion-body">
-              <p><strong>1. Переведем число в десятичную СС</strong></p>
+              <p class="mb-0">
+                <strong>1. Переведем число в десятичную СС</strong>
+              </p>
               <p>
                 <code>
                   {{ inputNum }}<sub>{{ inputSS }}</sub> =
                   <span v-html="reshDecStr"></span>
                 </code>
               </p>
-              <p>
+              <p class="mb-0">
                 <strong>
                   2. Переведем
                   <code>{{ reshDec }}<sub>10</sub></code>
@@ -148,7 +150,7 @@
                 >
               </p>
               <p>
-                Целая часть числа находится делением на основание новой<br />
+                Целая часть числа находится делением на основание новой СС<br />
                 <code><span v-html="reshSSStr"></span></code>
               </p>
               <p>
@@ -156,7 +158,7 @@
                 последнего <br />
                 <code>{{ resultNum }}</code>
               </p>
-              <p>
+              <p class="mb-0">
                 <strong> 3. Результат</strong>
               </p>
               <p>
@@ -194,16 +196,18 @@ export default {
   methods: {
     calculate() {
       if (this.inputNum) {
+        this.inputNum = this.inputNum.toUpperCase()
+
         this.inputNumHelp = this.inputNum + '<sub>' + this.inputSS + '</sub>'
 
         let inputNumArrayInt = []
         let inputNumArrayStr = this.inputNum.split('')
-        //console.log('inputNumArrayStr = ', inputNumArrayStr)
+
         inputNumArrayStr.forEach(item => {
           if (Number.isInteger(+item)) {
             inputNumArrayInt.push(+item)
           } else {
-            inputNumArrayInt.push(this.getNumber(item.toUpperCase()))
+            inputNumArrayInt.push(this.getNumber(item))
           }
 
           for (let i = 0; i < inputNumArrayInt.length; i++) {
@@ -304,25 +308,6 @@ export default {
           break
       }
     }
-    // tempMet() {
-    //   let arrString = []
-    //     let arrStringUp = []
-    //     this.inputNum.split('').forEach(item => {
-    //       if (item.toUpperCase() >= 'A' && item.toUpperCase() <= 'F') {
-    //         arrString.push(item)
-    //       }
-    //     })
-
-    //     if (arrString.length) {
-    //       arrStringUp = arrString.map(item => {
-    //         return item.toUpperCase()
-    //       })
-    //       const maxChar = arrStringUp.sort()[arrStringUp.length - 1]
-    //       this.inputMAX = this.getNumber(maxChar)
-    //     } else {
-    //       this.inputMAX = Math.max.apply(null, this.inputNum.split(''))
-    //     }
-    // }
   }
 }
 </script>
