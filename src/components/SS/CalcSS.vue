@@ -200,19 +200,20 @@ export default {
     }
   },
   methods: {
-    checkOffInSS() {
-      let btnEl = document.querySelectorAll(
-        '.input-ss.btn-check:checked+.btn-outline-dark'
-      )[0]
-      //btnEl.setAttribute('checked', false)
-      btnEl.classList.add('bg-white', 'text-dark')
-    },
-    checkOffResSS() {
-      let btnEl = document.querySelectorAll(
-        '.result-ss.btn-check:checked+.btn-outline-dark'
-      )[0]
-      btnEl.classList.add('bg-white', 'text-dark')
-    },
+    // checkOffInSS() {
+    //   let btnEl = document.querySelectorAll(
+    //     '.input-ss.btn-check:checked+.btn-outline-dark'
+    //   )[0]
+    //   console.log('btnEl befor', btnEl.previousSibling)
+    //   btnEl.previousSibling.setAttribute('checked', 'false')
+    //   console.log('btnEl after', btnEl.previousSibling)
+    // },
+    // checkOffResSS() {
+    //   let btnEl = document.querySelectorAll(
+    //     '.result-ss.btn-check:checked+.btn-outline-dark'
+    //   )[0]
+    //   btnEl.classList.add('bg-white', 'text-dark')
+    // },
     calculate() {
       if (this.inputSS > 36) {
         alert('Основание СС не может быть больше 36')
