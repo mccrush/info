@@ -155,8 +155,8 @@
                   <code><span v-html="reshSSStr"></span></code>
                 </p>
                 <p>
-                  Записываем последнюю целую часть + остатки от деления начиная
-                  с последнего <br />
+                  Записываем последнюю целую часть от деления + остатки от
+                  деления начиная с последнего <br />
                   <code>{{ resultNum }}</code>
                 </p>
                 <p class="mb-0">
@@ -236,7 +236,7 @@ export default {
         let res = parseInt(this.inputNum, this.inputSS).toString(+this.resultSS)
 
         if (res !== 'NaN') {
-          this.resultNum = res
+          this.resultNum = res.toUpperCase()
           this.resultNumHelp =
             this.resultNum + '<sub>' + this.resultSS + '</sub>'
           this.reshenie()
