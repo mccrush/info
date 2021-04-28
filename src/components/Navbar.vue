@@ -17,7 +17,7 @@
         ref="step"
         :class="{ 'router-link-active': infoPage === 'Step' }"
       >
-        Степени 2
+        Степени
       </button>
     </div>
     <div class="col-6 col-sm-3 mt-2 mt-sm-0">
