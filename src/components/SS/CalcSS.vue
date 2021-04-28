@@ -177,6 +177,30 @@ export default {
       if (this.inputNum) {
         this.inputNumHelp = this.inputNum + '<sub>' + this.inputSS + '</sub>'
 
+        let inputNumArrayInt = []
+        let inputNumArrayStr = this.inputNum.split('')
+        //console.log('inputNumArrayStr = ', inputNumArrayStr)
+        inputNumArrayStr.forEach(item => {
+          if (Number.isInteger(+item)) {
+            inputNumArrayInt.push(+item)
+          } else {
+            inputNumArrayInt.push(this.getNumber(item.toUpperCase()))
+          }
+
+          for (let i = 0; i < inputNumArrayInt.length; i++) {
+            if (inputNumArrayInt[i] > this.inputSS) {
+              this.inputNumHelp =
+                '<code>Цифры ' +
+                inputNumArrayStr[i] +
+                ' нет в ' +
+                this.inputSS +
+                '-ой CC</code>'
+              break
+            }
+          }
+          //console.log('inputNumArrayInt = ', inputNumArrayInt)
+        })
+
         let res = parseInt(this.inputNum, this.inputSS).toString(+this.resultSS)
 
         if (res !== 'NaN') {
