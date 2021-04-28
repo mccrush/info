@@ -21,6 +21,8 @@ import Logic from '@/views/Logic'
 import Ss from '@/views/Ss'
 import Step from '@/views/Step'
 import About from '@/views/About'
+import Algol from '@/views/Algol'
+import Graph from '@/views/Graph'
 
 export default {
   name: 'App',
@@ -31,7 +33,9 @@ export default {
     Logic,
     Ss,
     Step,
-    About
+    About,
+    Algol,
+    Graph
   },
   data() {
     return {
