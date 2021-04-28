@@ -13,6 +13,19 @@
             step="1"
           />
           <div id="resultNumHelp" class="form-text mb-3">Введите число</div>
+          <div class="d-block d-sm-none">
+            <input
+              type="number"
+              class="form-control"
+              v-model.number="inputStep"
+              min="1"
+              max="99"
+              step="1"
+            />
+            <div id="resultNumHelp" class="form-text mb-3">
+              Введите степень <strong>n</strong>
+            </div>
+          </div>
           <table
             class="table table-bordered table-striped table-hover table-sm"
           >
@@ -31,15 +44,19 @@
           </table>
         </div>
         <div class="col-12 col-sm-6">
-          <input
-            type="number"
-            class="form-control"
-            v-model.number="inputStep"
-            min="1"
-            max="99"
-            step="1"
-          />
-          <div id="resultNumHelp" class="form-text mb-3">Введите степень</div>
+          <div class="d-none d-sm-block">
+            <input
+              type="number"
+              class="form-control"
+              v-model.number="inputStep"
+              min="1"
+              max="99"
+              step="1"
+            />
+            <div id="resultNumHelp" class="form-text mb-3">
+              Введите степень <strong>n</strong>
+            </div>
+          </div>
           <table
             class="table table-bordered table-striped table-hover table-sm"
           >
