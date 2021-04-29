@@ -19,20 +19,21 @@
           v-for="ss in 15"
           :key="'id' + ss"
         >
-          <input
+          <!-- <input
             type="radio"
             class="input-ss btn-check"
             name="inputSS"
             :id="'option' + ss"
             autocomplete="off"
             @change="calculate"
-          />
-          <label
-            class="btn btn-outline-dark w-75"
-            :for="'option' + ss"
-            @click="inputSS = ss + 1"
-            >{{ ss + 1 }}</label
+          /> -->
+          <button
+            class="input-ss btn btn-outline-dark w-75"
+            :class="{ 'activ-in-ss': inputSS == ss + 1 }"
+            @click="selectInputSS(ss + 1)"
           >
+            {{ ss + 1 }}
+          </button>
         </div>
         <input
           type="text"
@@ -70,20 +71,13 @@
           v-for="ss in 15"
           :key="'idr' + ss"
         >
-          <input
-            type="radio"
-            class="result-ss btn-check"
-            name="resultSS"
-            :id="'optionr' + ss"
-            autocomplete="off"
-            @change="calculate"
-          />
-          <label
-            class="btn btn-outline-dark w-75"
-            :for="'optionr' + ss"
-            @click="resultSS = ss + 1"
-            >{{ ss + 1 }}</label
+          <button
+            class="result-ss btn btn-outline-dark w-75"
+            :class="{ 'activ-res-ss': resultSS == ss + 1 }"
+            @click="selectResultSS(ss + 1)"
           >
+            {{ ss + 1 }}
+          </button>
         </div>
         <input
           type="text"
@@ -200,20 +194,28 @@ export default {
     }
   },
   methods: {
-    // checkOffInSS() {
-    //   let btnEl = document.querySelectorAll(
-    //     '.input-ss.btn-check:checked+.btn-outline-dark'
-    //   )[0]
-    //   console.log('btnEl befor', btnEl.previousSibling)
-    //   btnEl.previousSibling.setAttribute('checked', 'false')
-    //   console.log('btnEl after', btnEl.previousSibling)
-    // },
-    // checkOffResSS() {
-    //   let btnEl = document.querySelectorAll(
-    //     '.result-ss.btn-check:checked+.btn-outline-dark'
-    //   )[0]
-    //   btnEl.classList.add('bg-white', 'text-dark')
-    // },
+    checkOffInSS() {
+      let btnEls = document.querySelectorAll('.input-ss')
+
+      for (let i = 0; i < btnEls.length; i++) {
+        btnEls[i].classList.remove('activ-in-ss')
+      }
+    },
+    checkOffResSS() {
+      let btnEls = document.querySelectorAll('.result-ss')
+
+      for (let i = 0; i < btnEls.length; i++) {
+        btnEls[i].classList.remove('activ-res-ss')
+      }
+    },
+    selectInputSS(ss) {
+      this.inputSS = ss
+      this.calculate()
+    },
+    selectResultSS(ss) {
+      this.resultSS = ss
+      this.calculate()
+    },
     calculate() {
       if (this.inputSS > 36) {
         alert('Основание СС не может быть больше 36')
@@ -325,4 +327,9 @@ export default {
 </script>
 
 <style scoped>
+.activ-in-ss,
+.activ-res-ss {
+  color: #fff;
+  background-color: #212529;
+}
 </style>
