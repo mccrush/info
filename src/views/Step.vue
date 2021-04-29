@@ -12,7 +12,10 @@
             max="99"
             step="1"
           />
-          <div id="resultNumHelp" class="form-text mb-3">Введите число</div>
+          <div id="resultNumHelp" class="form-text mb-3">
+            Введите число
+            <small title="MAX 99">(MAX 99)</small>
+          </div>
           <div class="d-block d-sm-none">
             <input
               type="number"
@@ -23,7 +26,8 @@
               step="1"
             />
             <div id="resultNumHelp" class="form-text mb-3">
-              Введите степень <strong>n</strong>
+              Введите степень <strong>n</strong>&nbsp;
+              <small title="MAX 99">(MAX 99)</small>
             </div>
           </div>
           <table
@@ -54,7 +58,8 @@
               step="1"
             />
             <div id="resultNumHelp" class="form-text mb-3">
-              Введите степень <strong>n</strong>
+              Введите степень <strong>n</strong>&nbsp;
+              <small title="MAX 99">(MAX 99)</small>
             </div>
           </div>
           <table
