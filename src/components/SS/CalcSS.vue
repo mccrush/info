@@ -56,8 +56,13 @@
             v-model="resultNum"
             aria-describedby="button-addon2"
           />
-          <button class="btn btn-outline-secondary" id="button-addon2">
-            Copy
+          <button
+            class="btn btn-outline-secondary"
+            id="button-addon2"
+            @click="copyInBuffer($event)"
+            title="Скопировать в буфер"
+          >
+            Копировать
           </button>
         </div>
         <div id="resultNumHelp" class="form-text" v-html="resultNumHelp"></div>
@@ -99,8 +104,13 @@
             v-model="resultNum"
             aria-describedby="button-addon2"
           />
-          <button class="btn btn-outline-secondary" id="button-addon2">
-            Copy
+          <button
+            class="btn btn-outline-secondary"
+            id="button-addon2"
+            @click="copyInBuffer($event)"
+            title="Скопировать в буфер"
+          >
+            Копировать
           </button>
         </div>
       </div>
@@ -194,16 +204,22 @@ export default {
     }
   },
   methods: {
+    copyInBuffer(e) {
+      const el = e.target.previousSibling
+      el.focus()
+      el.select()
+      if (document.execCommand('copy')) {
+        console.log('Результат скопирован в буфер')
+      }
+    },
     checkOffInSS() {
       let btnEls = document.querySelectorAll('.input-ss')
-
       for (let i = 0; i < btnEls.length; i++) {
         btnEls[i].classList.remove('activ-in-ss')
       }
     },
     checkOffResSS() {
       let btnEls = document.querySelectorAll('.result-ss')
-
       for (let i = 0; i < btnEls.length; i++) {
         btnEls[i].classList.remove('activ-res-ss')
       }
