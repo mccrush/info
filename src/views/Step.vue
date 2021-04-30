@@ -36,7 +36,7 @@
             <thead>
               <tr>
                 <th class="w-50">n</th>
-                <th>2<sup>n</sup></th>
+                <th>{{ inputNum }}<sup>n</sup></th>
               </tr>
             </thead>
             <tbody>
@@ -68,7 +68,7 @@
             <thead>
               <tr>
                 <th class="w-50">n</th>
-                <th>2<sup>n</sup></th>
+                <th>{{ inputNum }}<sup>n</sup></th>
               </tr>
             </thead>
             <tbody>
