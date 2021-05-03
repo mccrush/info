@@ -10,6 +10,19 @@
         называемой множеством рёбер
       </p>
       <h5>Характеристики графов <small>(блок в разработке)</small></h5>
+      <hr />
+    </div>
+    <div class="col-12 pt-2">
+      <GraphApp />
     </div>
   </div>
 </template>
+
+<script>
+import GraphApp from '@/components/Graph/GraphApp'
+export default {
+  components: {
+    GraphApp
+  }
+}
+</script>
