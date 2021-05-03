@@ -21,7 +21,7 @@
       <button class="btn btn-sm btn-dark mt-2" @click="clearPole">
         Очистить поле
       </button>
-      <div class="bg-light rounded-2 mt-2 p-0 pt-1 ps-2 pe-2 small">
+      <div class="bg-light rounded-2 shadow-sm mt-2 p-0 pt-1 ps-2 pe-2 small">
         Вершин {{ points.length }}, ребер {{ lines.length }}
       </div>
     </div>
