@@ -11,6 +11,7 @@
       Поочередный клик по вершинам - рисование ребра<br />
       (остальные операции в процессе разработки)
     </p>
+    <div>RectX {{ rectX }}, rectY {{ rectY }}</div>
     <div id="graphPole" class="rounded-2 border">
       <svg
         version="1.1"
@@ -40,6 +41,8 @@ export default {
       height: 350,
       radius: 14,
       poleEl: null,
+      rectXm: 0,
+      rectYm: 0,
       rectX: 0,
       rectY: 0,
       lineStart: null,
@@ -53,6 +56,18 @@ export default {
     this.poleEl = document.getElementById('pole')
     this.rectX = this.poleEl.getBoundingClientRect().x
     this.rectY = this.poleEl.getBoundingClientRect().y
+    //console.log(this.rectXm, ', ', this.rectYm)
+  },
+  computed: {
+    // poleEl() {
+    //   return document.getElementById('pole')
+    // },
+    // rectX() {
+    //   return this.rectXm
+    // },
+    // rectY() {
+    //   return this.rectYm - window.scrollY
+    // }
   },
   methods: {
     drawPoint() {
@@ -99,8 +114,10 @@ export default {
       })
     },
     addPoint(e) {
-      const cx = e.clientX - this.rectX
-      const cy = e.clientY - this.rectY
+      // const cx = e.clientX - this.rectX
+      // const cy = e.clientY - this.rectY
+      const cx = e.offsetX
+      const cy = e.offsetY
 
       const point = { x: cx, y: cy }
       this.points.push(point)
@@ -117,20 +134,22 @@ export default {
       // });
     },
     addLine(e) {
-      //console.log(e);
-      console.log(
-        'e.target.parentNode.getBoundingClientRect().x:',
-        e.target.parentNode.getBoundingClientRect().x
-      )
-      console.log(
-        'e.target.parentNode.getBoundingClientRect().y:',
-        e.target.parentNode.getBoundingClientRect().y
-      )
+      //console.log(e)
+      console.log(e)
+      // console.log(e.parentNode)
+      // console.log(e.parentNode.parentNode)
+      console.log('e.target.parentNode.offsetX:', e.parentNode.offsetX)
+      console.log('e.target.parentNode.offsetY:', e.target.parentNode.offsetY)
 
-      const cx =
-        e.target.parentNode.getBoundingClientRect().x - this.rectX + this.radius
-      const cy =
-        e.target.parentNode.getBoundingClientRect().y - this.rectY + this.radius
+      // const cx =
+      //   e.target.parentNode.getBoundingClientRect().x - this.rectX + this.radius
+      // const cy =
+      //   e.target.parentNode.getBoundingClientRect().y - this.rectY + this.radius
+
+      // const cx = e.target.parentNode.offsetX + this.radius
+      // const cy = e.target.parentNode.offsetY + this.radius
+      const cx = e.target.parentNode.offsetX + this.radius
+      const cy = e.offsetY + this.radius
 
       if (!this.lineStart) {
         this.lineStart = { x: cx, y: cy }
