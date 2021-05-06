@@ -11,7 +11,8 @@
       Поочередный клик по вершинам - рисование ребра<br />
       (остальные операции в процессе разработки)
     </p>
-    <div>RectX {{ rectX }}, rectY {{ rectY }}</div>
+    <!-- <div>RectX {{ rectX }}, rectY {{ rectY }}</div> -->
+    <!-- <div>texts: {{ texts }}</div> -->
     <div id="graphPole" class="rounded-2 border">
       <svg
         version="1.1"
@@ -41,10 +42,7 @@ export default {
       height: 350,
       radius: 14,
       poleEl: null,
-      rectXm: 0,
-      rectYm: 0,
-      rectX: 0,
-      rectY: 0,
+      poleClick: false,
       lineStart: null,
       lineEnd: null,
       lines: [],
@@ -54,22 +52,26 @@ export default {
   },
   mounted() {
     this.poleEl = document.getElementById('pole')
-    this.rectX = this.poleEl.getBoundingClientRect().x
-    this.rectY = this.poleEl.getBoundingClientRect().y
-    //console.log(this.rectXm, ', ', this.rectYm)
   },
-  computed: {
-    // poleEl() {
-    //   return document.getElementById('pole')
-    // },
-    // rectX() {
-    //   return this.rectXm
-    // },
-    // rectY() {
-    //   return this.rectYm - window.scrollY
-    // }
-  },
+  computed: {},
   methods: {
+    addPoint(e) {
+      this.poleClick = true
+      const cx = e.offsetX
+      const cy = e.offsetY
+
+      const point = { x: cx, y: cy }
+      this.points.push(point)
+
+      const textContent = this.points.length
+      const text = { x: cx, y: cy, text: textContent }
+      this.texts.push(text)
+      this.draw()
+
+      // point.addEventListener("dblclick", () => {
+      //   console.log("dblclick");
+      // });
+    },
     drawPoint() {
       this.points.forEach((item, index) => {
         const pointEl = document.createElementNS(
@@ -110,52 +112,19 @@ export default {
         group.append(textEl)
         this.poleEl.append(group)
 
-        group.addEventListener('click', this.addLine)
+        group.addEventListener('click', () => {
+          this.addLine(item.x, item.y)
+        })
       })
     },
-    addPoint(e) {
-      // const cx = e.clientX - this.rectX
-      // const cy = e.clientY - this.rectY
-      const cx = e.offsetX
-      const cy = e.offsetY
-
-      const point = { x: cx, y: cy }
-      this.points.push(point)
-
-      console.log('this.points.length:', this.points.length)
-      const text = { x: cx, y: cy, text: this.points.length } //this.points.length};
-      this.texts.push(text)
-      this.draw()
-
-      // point.addEventListener("dblclick", () => {
-      //   console.log("dblclick");
-      //   this.startLine = null;
-      //   this.endLine = null;
-      // });
-    },
-    addLine(e) {
-      //console.log(e)
-      console.log(e)
-      // console.log(e.parentNode)
-      // console.log(e.parentNode.parentNode)
-      console.log('e.target.parentNode.offsetX:', e.parentNode.offsetX)
-      console.log('e.target.parentNode.offsetY:', e.target.parentNode.offsetY)
-
-      // const cx =
-      //   e.target.parentNode.getBoundingClientRect().x - this.rectX + this.radius
-      // const cy =
-      //   e.target.parentNode.getBoundingClientRect().y - this.rectY + this.radius
-
-      // const cx = e.target.parentNode.offsetX + this.radius
-      // const cy = e.target.parentNode.offsetY + this.radius
-      const cx = e.target.parentNode.offsetX + this.radius
-      const cy = e.offsetY + this.radius
-
+    addLine(cx, cy) {
       if (!this.lineStart) {
         this.lineStart = { x: cx, y: cy }
+        //console.log('lineStart cx:', cx, ' cy:', cy)
       } else {
         if (!this.lineEnd) {
           this.lineEnd = { x: cx, y: cy }
+          //console.log('lineEnd cx:', cx, ' cy:', cy)
 
           const line = {
             x1: this.lineStart.x,
@@ -164,18 +133,6 @@ export default {
             y2: this.lineEnd.y
           }
 
-          // console.log(
-          //   'lineStart.x:',
-          //   this.lineStart.x,
-          //   ' lineStart.y:',
-          //   this.lineStart.y
-          // )
-          // console.log(
-          //   'lineEnd.x:',
-          //   this.lineEnd.x,
-          //   ' lineEnd.y:',
-          //   this.lineEnd.y
-          // )
           this.lines.push(line)
           this.draw()
         }
@@ -210,6 +167,7 @@ export default {
     clearPole() {
       this.poleEl.innerHTML = ''
       this.points = []
+      this.texts = []
       this.lines = []
     }
   }
