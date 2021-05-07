@@ -64,7 +64,6 @@ export default {
   mounted() {
     this.poleEl = document.getElementById('pole')
     this.poleEl.style.background = '#F8F9FA'
-    //this.graphPoleEl = document.getElementById('graphPole')
   },
   computed: {},
   methods: {
