@@ -9,6 +9,8 @@
     <p class="small">
       Один клик по полю - добавление вершины<br />
       Поочередный клик по вершинам - рисование ребра<br />
+      Двойной клик по вершине - переименование
+      <small>(для заершения, нажать Enter или кликнуть по полю)</small><br />
       (остальные операции в процессе разработки)
     </p>
     <!-- <div>RectX {{ rectX }}, rectY {{ rectY }}</div> -->
@@ -42,7 +44,7 @@ export default {
       height: 350,
       radius: 14,
       poleEl: null,
-      poleClick: false,
+      editMode: false,
       lineStart: null,
       lineEnd: null,
       lines: [],
@@ -57,17 +59,20 @@ export default {
   computed: {},
   methods: {
     addPoint(e) {
-      this.poleClick = true
-      const cx = e.offsetX
-      const cy = e.offsetY
+      if (!this.editMode) {
+        const cx = e.offsetX
+        const cy = e.offsetY
 
-      const point = { x: cx, y: cy }
-      this.points.push(point)
+        const point = { x: cx, y: cy }
+        this.points.push(point)
 
-      const textContent = this.points.length
-      const text = { x: cx, y: cy, text: textContent }
-      this.texts.push(text)
-      this.draw()
+        const textContent = this.points.length
+        const text = { x: cx, y: cy, text: textContent }
+        this.texts.push(text)
+        this.draw()
+      } else {
+        this.editMode = false
+      }
     },
     drawPoint() {
       this.points.forEach((item, index) => {
@@ -144,15 +149,13 @@ export default {
         })
 
         groupEl.addEventListener('dblclick', () => {
-          console.log('dblclick')
           this.renamePoint(index)
         })
       })
     },
     renamePoint(index) {
-      console.log('index:', index)
+      this.editMode = true
       const foreignElEdit = document.getElementById('foreign' + index)
-      //console.log('foreignElEdit:', foreignElEdit)
       foreignElEdit.style.display = 'block'
 
       const inputElEdit = foreignElEdit.firstChild
@@ -162,6 +165,7 @@ export default {
           this.texts[index].text = inputElEdit.value
           foreignElEdit.style.display = 'none'
           this.draw()
+          this.editMode = false
         }
       })
       inputElEdit.addEventListener('blur', () => {
