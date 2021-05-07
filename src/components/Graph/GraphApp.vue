@@ -170,14 +170,21 @@ export default {
       this.points.splice(index, 1)
       this.texts.splice(index, 1)
       if (this.lines.length) {
-        this.removeLine(x, y)
+        this.removeLineFromPoint(x, y)
       } else {
         this.draw()
       }
     },
-    removeLine(x, y) {
+    removeLineFromPoint(x, y) {
       this.lines = this.lines.filter(
         item => item.x1 != x && item.y1 != y && item.x2 != x && item.y2 != y
+      )
+      this.draw()
+    },
+    removeLineSelf(x1, x2, y1, y2) {
+      this.lines = this.lines.filter(
+        item =>
+          (item.x1 != x1 && item.y1 != y1) || (item.x2 != x2 && item.y2 != y2)
       )
       this.draw()
     },
@@ -230,20 +237,27 @@ export default {
     },
     drawLine() {
       this.lines.forEach(item => {
-        const line = document.createElementNS(
+        const lineEl = document.createElementNS(
           'http://www.w3.org/2000/svg',
           'line'
         )
-        line.setAttribute('x1', item.x1)
-        line.setAttribute('x2', item.x2)
-        line.setAttribute('y1', item.y1)
-        line.setAttribute('y2', item.y2)
-        line.setAttribute('stroke', '#8E44AD')
-        line.setAttribute('stroke-width', '4')
-        line.setAttribute('stroke-linecap', 'round')
-        line.setAttribute('stroke-opacity', '1')
+        lineEl.setAttribute('x1', item.x1)
+        lineEl.setAttribute('x2', item.x2)
+        lineEl.setAttribute('y1', item.y1)
+        lineEl.setAttribute('y2', item.y2)
+        lineEl.setAttribute('stroke', '#8E44AD')
+        lineEl.setAttribute('stroke-width', '4')
+        lineEl.setAttribute('stroke-linecap', 'round')
+        lineEl.setAttribute('stroke-opacity', '1')
+        lineEl.style.cursor = 'pointer'
 
-        this.poleEl.prepend(line)
+        this.poleEl.prepend(lineEl)
+
+        lineEl.addEventListener('click', () => {
+          if (this.removeMode) {
+            this.removeLineSelf(item.x1, item.x2, item.y1, item.y2)
+          }
+        })
       })
 
       this.lineStart = null
