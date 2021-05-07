@@ -52,6 +52,7 @@ export default {
   },
   mounted() {
     this.poleEl = document.getElementById('pole')
+    this.graphPoleEl = document.getElementById('graphPole')
   },
   computed: {},
   methods: {
@@ -103,13 +104,39 @@ export default {
         textEl.style.userSelect = 'none'
         textEl.textContent = this.texts[index].text
 
+        // Create foreignObject
+        const foreign = document.createElementNS(
+          'http://www.w3.org/2000/svg',
+          'foreignObject'
+        )
+        foreign.setAttribute('x', item.x - 16)
+        foreign.setAttribute('y', item.y - 12)
+        foreign.setAttribute('width', 32)
+        foreign.setAttribute('height', 24)
+        foreign.style.display = 'none'
+
+        // Create inputEl
+        const inputEl = document.createElementNS(
+          'http://www.w3.org/1999/xhtml',
+          'input'
+        )
+        inputEl.setAttribute('type', 'text')
+        inputEl.setAttribute('name', 'pointName' + index)
+        inputEl.style.width = '100%'
+        inputEl.style.height = '100%'
+        inputEl.style.border = '4px solid red'
+
+        // Create Grpup
         const group = document.createElementNS(
           'http://www.w3.org/2000/svg',
           'g'
         )
         group.style.cursor = 'pointer'
+
+        foreign.append(inputEl)
         group.append(pointEl)
         group.append(textEl)
+        group.append(foreign)
         this.poleEl.append(group)
 
         group.addEventListener('click', () => {
