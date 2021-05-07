@@ -68,7 +68,7 @@ export default {
   computed: {},
   methods: {
     addPoint(e) {
-      if (!this.editMode) {
+      if (!this.editMode && !this.removeMode) {
         const cx = e.offsetX
         const cy = e.offsetY
 
@@ -167,7 +167,6 @@ export default {
       })
     },
     removePoint(index, x, y) {
-      console.log('remove index:', index)
       this.points.splice(index, 1)
       this.texts.splice(index, 1)
       if (this.lines.length) {
