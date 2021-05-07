@@ -183,15 +183,20 @@ export default {
           this.lineEnd = { x: cx, y: cy }
           //console.log('lineEnd cx:', cx, ' cy:', cy)
 
-          const line = {
-            x1: this.lineStart.x,
-            x2: this.lineEnd.x,
-            y1: this.lineStart.y,
-            y2: this.lineEnd.y
-          }
+          if (
+            this.lineStart.x != this.lineEnd.x &&
+            this.lineStart.y != this.lineEnd.y
+          ) {
+            const line = {
+              x1: this.lineStart.x,
+              x2: this.lineEnd.x,
+              y1: this.lineStart.y,
+              y2: this.lineEnd.y
+            }
 
-          this.lines.push(line)
-          this.draw()
+            this.lines.push(line)
+            this.draw()
+          }
         }
       }
     },
