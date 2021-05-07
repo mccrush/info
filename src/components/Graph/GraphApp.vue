@@ -68,10 +68,6 @@ export default {
       const text = { x: cx, y: cy, text: textContent }
       this.texts.push(text)
       this.draw()
-
-      // point.addEventListener("dblclick", () => {
-      //   console.log("dblclick");
-      // });
     },
     drawPoint() {
       this.points.forEach((item, index) => {
@@ -105,15 +101,16 @@ export default {
         textEl.textContent = this.texts[index].text
 
         // Create foreignObject
-        const foreign = document.createElementNS(
+        const foreignEl = document.createElementNS(
           'http://www.w3.org/2000/svg',
           'foreignObject'
         )
-        foreign.setAttribute('x', item.x - 16)
-        foreign.setAttribute('y', item.y - 12)
-        foreign.setAttribute('width', 32)
-        foreign.setAttribute('height', 24)
-        foreign.style.display = 'none'
+        foreignEl.setAttribute('x', item.x - 12)
+        foreignEl.setAttribute('y', item.y - 12)
+        foreignEl.setAttribute('width', 24)
+        foreignEl.setAttribute('height', 24)
+        foreignEl.setAttribute('id', 'foreign' + index)
+        foreignEl.style.display = 'none'
 
         // Create inputEl
         const inputEl = document.createElementNS(
@@ -121,27 +118,56 @@ export default {
           'input'
         )
         inputEl.setAttribute('type', 'text')
-        inputEl.setAttribute('name', 'pointName' + index)
+        inputEl.setAttribute('id', 'inputEl' + index)
+        inputEl.setAttribute('maxlength', '2')
         inputEl.style.width = '100%'
         inputEl.style.height = '100%'
-        inputEl.style.border = '4px solid red'
+        inputEl.style.textAlign = 'center'
+        inputEl.style.fontSize = '14px'
+        //inputEl.style.border = '4px solid red'
 
         // Create Grpup
-        const group = document.createElementNS(
+        const groupEl = document.createElementNS(
           'http://www.w3.org/2000/svg',
           'g'
         )
-        group.style.cursor = 'pointer'
+        groupEl.style.cursor = 'pointer'
 
-        foreign.append(inputEl)
-        group.append(pointEl)
-        group.append(textEl)
-        group.append(foreign)
-        this.poleEl.append(group)
+        foreignEl.append(inputEl)
+        groupEl.append(pointEl)
+        groupEl.append(textEl)
+        groupEl.append(foreignEl)
+        this.poleEl.append(groupEl)
 
-        group.addEventListener('click', () => {
+        groupEl.addEventListener('click', () => {
           this.addLine(item.x, item.y)
         })
+
+        groupEl.addEventListener('dblclick', () => {
+          console.log('dblclick')
+          this.renamePoint(index)
+        })
+      })
+    },
+    renamePoint(index) {
+      console.log('index:', index)
+      const foreignElEdit = document.getElementById('foreign' + index)
+      //console.log('foreignElEdit:', foreignElEdit)
+      foreignElEdit.style.display = 'block'
+
+      const inputElEdit = foreignElEdit.firstChild
+      inputElEdit.focus()
+      inputElEdit.addEventListener('keydown', e => {
+        if (e.keyCode === 13) {
+          this.texts[index].text = inputElEdit.value
+          foreignElEdit.style.display = 'none'
+          this.draw()
+        }
+      })
+      inputElEdit.addEventListener('blur', () => {
+        this.texts[index].text = inputElEdit.value
+        foreignElEdit.style.display = 'none'
+        this.draw()
       })
     },
     addLine(cx, cy) {
