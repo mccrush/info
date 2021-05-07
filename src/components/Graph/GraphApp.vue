@@ -10,7 +10,7 @@
       Один клик по полю - добавление вершины<br />
       Поочередный клик по вершинам - рисование ребра<br />
       Двойной клик по вершине - переименование
-      <small>(для заершения, нажать Enter или кликнуть по полю)</small><br />
+      <small>(для завершения, нажать Enter или кликнуть по полю)</small><br />
       (остальные операции в процессе разработки)
     </p>
     <!-- <div>RectX {{ rectX }}, rectY {{ rectY }}</div> -->
@@ -37,7 +37,7 @@
       >
         Режим удаления
       </button>
-      <div class="bg-light rounded-2 shadow-sm mt-2 p-0 pt-1 ps-2 pe-2 small">
+      <div class="bg-light border rounded-2 mt-2 p-0 pt-1 ps-2 pe-2 small">
         Вершин {{ points.length }}, ребер {{ lines.length }}
       </div>
     </div>
