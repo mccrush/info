@@ -30,6 +30,13 @@
       <button class="btn btn-sm btn-dark mt-2" @click="clearPole">
         Очистить поле
       </button>
+      <button
+        class="btn btn-sm mt-2"
+        @click="removeMode = !removeMode"
+        :class="{ 'btn-outline-danger': !removeMode, 'btn-danger': removeMode }"
+      >
+        Режим удаления
+      </button>
       <div class="bg-light rounded-2 shadow-sm mt-2 p-0 pt-1 ps-2 pe-2 small">
         Вершин {{ points.length }}, ребер {{ lines.length }}
       </div>
@@ -45,6 +52,7 @@ export default {
       radius: 14,
       poleEl: null,
       editMode: false,
+      removeMode: false,
       lineStart: null,
       lineEnd: null,
       lines: [],
@@ -145,13 +153,23 @@ export default {
         this.poleEl.append(groupEl)
 
         groupEl.addEventListener('click', () => {
-          this.addLine(item.x, item.y)
+          if (this.removeMode) {
+            this.removePoint(index)
+          } else {
+            this.addLine(item.x, item.y)
+          }
         })
 
         groupEl.addEventListener('dblclick', () => {
           this.renamePoint(index)
         })
       })
+    },
+    removePoint(index) {
+      console.log('remove index:', index)
+      this.points.splice(index, 1)
+      this.texts.splice(index, 1)
+      this.draw()
     },
     renamePoint(index) {
       this.editMode = true
