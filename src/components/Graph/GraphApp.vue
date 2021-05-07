@@ -154,7 +154,7 @@ export default {
 
         groupEl.addEventListener('click', () => {
           if (this.removeMode) {
-            this.removePoint(index)
+            this.removePoint(index, item.x, item.y)
           } else {
             this.addLine(item.x, item.y)
           }
@@ -165,10 +165,20 @@ export default {
         })
       })
     },
-    removePoint(index) {
+    removePoint(index, x, y) {
       console.log('remove index:', index)
       this.points.splice(index, 1)
       this.texts.splice(index, 1)
+      if (this.lines.length) {
+        this.removeLine(x, y)
+      } else {
+        this.draw()
+      }
+    },
+    removeLine(x, y) {
+      this.lines = this.lines.filter(
+        item => item.x1 != x && item.y1 != y && item.x2 != x && item.y2 != y
+      )
       this.draw()
     },
     renamePoint(index) {
