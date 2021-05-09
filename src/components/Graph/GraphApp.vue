@@ -214,14 +214,11 @@ export default {
         this.lineStart = { x: cx, y: cy }
         //console.log('lineStart cx:', cx, ' cy:', cy)
       } else {
-        if (!this.lineEnd) {
-          this.lineEnd = { x: cx, y: cy }
-          //console.log('lineEnd cx:', cx, ' cy:', cy)
+        if (this.lineStart.x != cx || this.lineStart.y != cy) {
+          if (!this.lineEnd) {
+            this.lineEnd = { x: cx, y: cy }
+            //console.log('lineEnd cx:', cx, ' cy:', cy)
 
-          if (
-            this.lineStart.x != this.lineEnd.x &&
-            this.lineStart.y != this.lineEnd.y
-          ) {
             const line = {
               x1: this.lineStart.x,
               x2: this.lineEnd.x,
