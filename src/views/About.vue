@@ -27,7 +27,7 @@
             Hunt. Это поможет узнать о нем большему количеству людей</small
           >
         </div>
-        <div class="col-12 col-sm-6">
+        <div class="col-12 col-sm-6 mt-2 mt-sm-0">
           <a
             href="https://www.producthunt.com/posts/info-math?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-info-math"
             target="_blank"
