@@ -14,6 +14,19 @@
       </p>
       <hr />
       <CalcSS />
+      <div class="row mt-3">
+        <div class="col-12">
+          <div class="alert alert-warning lh-sm" role="alert">
+            Доступно обучающее видео на YouTube:<br />
+            <a
+              href="https://www.youtube.com/watch?v=JizNYwkiXJM"
+              target="_blank"
+              title="Перевод числа из двоичной системы счисления в десятичную"
+              >Перевод числа из двоичной системы счисления в десятичную</a
+            >
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -27,3 +40,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+a:hover {
+  text-decoration: none;
+}
+</style>
