@@ -60,6 +60,14 @@ h4 {
   margin-top: 32px;
 }
 
+h5 {
+  margin-top: 24px;
+}
+
+p {
+  margin-bottom: 8px;
+}
+
 .w-20 {
   width: 20%;
 }
