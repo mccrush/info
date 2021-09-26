@@ -37,7 +37,176 @@
           >* Данный перечень свойств не является исчерпывающим</small
         >
       </p>
-      <h5>Обозначение блок-схем <small>(блок в разработке)</small></h5>
+
+      <h5>Обозначение блок-схем</h5>
+      <p>
+        <strong>Схема</strong> — это абстракция какого-либо процесса или
+        системы, наглядно отображающая наиболее значимые части
+      </p>
+      <p>
+        На территории Российской Федерации действует единая система программной
+        документации (ЕСПД), частью которой является Государственный стандарт —
+        ГОСТ 19.701-90 «Схемы алгоритмов программ, данных и систем»
+      </p>
+      <p>
+        <strong>Блок-схема</strong> — представляет собой совокупность символов,
+        соответствующих этапам работы алгоритма и соединяющих их линий.
+        Пунктирная линия используется для соединения символа с комментарием.
+        Сплошная линия отражает зависимости по управлению между символами и
+        может снабжаться стрелкой. Стрелку можно не указывать при направлении
+        дуги слева направо и сверху вниз. Согласно п. 4.2.4, линии должны
+        подходить к символу слева, либо сверху, а исходить снизу, либо справа
+      </p>
+      <div class="row border mt-2">
+        <div
+          class="col-12 col-sm-5 col-md-4 border text-center small lh-1 pb-2"
+        >
+          <img
+            src="@/assets/algol/terminator.jpg"
+            alt="Терминатор начала и конца работы функции"
+            class="w-100"
+          />
+          <small>Терминатор начала и конца работы функции</small>
+        </div>
+        <div class="col-12 col-sm-7 col-md-8 border lh-sm pt-2 pb-2">
+          Терминатором начинается и заканчивается любой алгоритм
+        </div>
+      </div>
+      <div class="row border mt-2">
+        <div
+          class="col-12 col-sm-5 col-md-4 border text-center small lh-1 pb-2"
+        >
+          <img
+            src="@/assets/algol/data.jpg"
+            alt="Операции ввода и вывода данных"
+            class="w-100"
+          />
+          <small>Операции ввода и вывода данных</small>
+        </div>
+        <div class="col-12 col-sm-7 col-md-8 border lh-sm pt-2 pb-2">
+          В ГОСТ определено множество символов ввода/вывода, например вывод на
+          магнитные ленты, дисплеи и т.п. Если источник данных не принципиален,
+          обычно используется символ параллелограмма
+        </div>
+      </div>
+      <div class="row border mt-2">
+        <div
+          class="col-12 col-sm-5 col-md-4 border text-center small lh-1 pb-2"
+        >
+          <img
+            src="@/assets/algol/process.jpg"
+            alt="Выполнение операций над данными"
+            class="w-100"
+          />
+          <small>Выполнение операций над данными</small>
+        </div>
+        <div class="col-12 col-sm-7 col-md-8 border lh-sm pt-2 pb-2">
+          В блоке операций обычно размещают одно или несколько операций
+          присваивания, не требующих вызова внешних функций
+        </div>
+      </div>
+      <div class="row border mt-2">
+        <div
+          class="col-12 col-sm-5 col-md-4 border text-center small lh-1 pb-2"
+        >
+          <img
+            src="@/assets/algol/solution.jpg"
+            alt="Блок, иллюстрирующий ветвление алгоритма"
+            class="w-100"
+          />
+          <small>Блок, иллюстрирующий ветвление алгоритма</small>
+        </div>
+        <div class="col-12 col-sm-7 col-md-8 border lh-sm pt-2 pb-2">
+          Блок в виде ромба имеет один вход и несколько подписанных выходов. В
+          случае, если блок имеет 2 выхода (соответствует оператору ветвления),
+          на них подписывается результат сравнения — «да/нет». Если из блока
+          выходит большее число линий (оператор выбора), внутри него
+          записывается имя переменной, а на выходящих дугах — значения этой
+          переменной
+        </div>
+      </div>
+      <div class="row border mt-2">
+        <div
+          class="col-12 col-sm-5 col-md-4 border text-center small lh-1 pb-2"
+        >
+          <img
+            src="@/assets/algol/procedure.jpg"
+            alt="Вызов внешней процедуры"
+            class="w-100"
+          />
+          <small>Вызов внешней процедуры</small>
+        </div>
+        <div class="col-12 col-sm-7 col-md-8 border lh-sm pt-2 pb-2">
+          Вызов внешних процедур и функций помещается в прямоугольник с
+          дополнительными вертикальными линиями
+        </div>
+      </div>
+      <div class="row border mt-2">
+        <div
+          class="col-12 col-sm-5 col-md-4 border text-center small lh-1 pb-2"
+        >
+          <img
+            src="@/assets/algol/loop.jpg"
+            alt="Начало и конец цикла"
+            class="w-100"
+          />
+          <small>Начало и конец цикла</small>
+        </div>
+        <div class="col-12 col-sm-7 col-md-8 border lh-sm pt-2 pb-2">
+          Символы начала и конца цикла содержат имя и условие. Условие может
+          отсутствовать в одном из символов пары. Расположение условия,
+          определяет тип оператора, соответствующего символам на языке высокого
+          уровня — оператор с предусловием (while) или постусловием (do … while)
+        </div>
+      </div>
+      <div class="row border mt-2">
+        <div
+          class="col-12 col-sm-5 col-md-4 border text-center small lh-1 pb-2"
+        >
+          <img
+            src="@/assets/algol/preprocess.jpg"
+            alt="Подготовка данных"
+            class="w-100"
+          />
+          <small>Подготовка данных</small>
+        </div>
+        <div class="col-12 col-sm-7 col-md-8 border lh-sm pt-2 pb-2">
+          Символ «подготовка данных» в произвольной форме, задает входные
+          значения. Используется обычно для задания циклов со счетчиком
+        </div>
+      </div>
+      <div class="row border mt-2">
+        <div
+          class="col-12 col-sm-5 col-md-4 border text-center small lh-1 pb-2"
+        >
+          <img
+            src="@/assets/algol/connector.jpg"
+            alt="Соединитель"
+            class="w-100"
+          />
+          <small>Соединитель</small>
+        </div>
+        <div class="col-12 col-sm-7 col-md-8 border lh-sm pt-2 pb-2">
+          В случае, если блок-схема не умещается на лист, используется символ
+          соединителя, отражающий переход потока управления между листами
+        </div>
+      </div>
+      <div class="row border mt-2">
+        <div
+          class="col-12 col-sm-5 col-md-4 border text-center small lh-1 pb-2"
+        >
+          <img
+            src="@/assets/algol/comment.jpg"
+            alt="Комментарий"
+            class="w-100"
+          />
+          <small>Комментарий</small>
+        </div>
+        <div class="col-12 col-sm-7 col-md-8 border lh-sm pt-2 pb-2">
+          Комментарий может быть соединен как с одним блоком, так и группой.
+          Группа блоков выделяется на схеме пунктирной линией
+        </div>
+      </div>
     </div>
   </div>
 </template>
