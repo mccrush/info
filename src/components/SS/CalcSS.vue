@@ -37,7 +37,14 @@
         </div>
         <input
           type="text"
-          class="form-control d-inline-flex border-warning text-center w-20 ms-2"
+          class="
+            form-control
+            d-inline-flex
+            border-warning
+            text-center
+            w-20
+            ms-2
+          "
           v-model.trim="inputSS"
           @input="calculate"
           title="MAX 36"
@@ -86,7 +93,14 @@
         </div>
         <input
           type="text"
-          class="form-control d-inline-flex border-warning text-center w-20 ms-2"
+          class="
+            form-control
+            d-inline-flex
+            border-warning
+            text-center
+            w-20
+            ms-2
+          "
           v-model.trim="resultSS"
           @input="calculate"
           title="MAX 36"
@@ -300,7 +314,7 @@ export default {
         this.reshDecStr +=
           item +
           '•' +
-          '10' +
+          this.inputSS +
           '<sup>' +
           (array.length - (index + 1)) +
           '</sup> + '
